@@ -16,7 +16,6 @@ from neomodel import db
 from django.conf import settings as conf_settings
 
 
-
 @csrf_exempt
 @api_view(['POST'])
 def createEcommerce(request):
@@ -85,26 +84,31 @@ def createTransporter(request):
         return JsonResponse(serializer.data)
     return JsonResponse(serializer.errors, status=400)
 
+@api_view()
 def listEcommerces(request):
     ecommerces = Ecommerce.nodes.all()
     serializer = EcommerceSerializer(ecommerces, many=True)
     return JsonResponse(serializer.data, safe=False)
 
+@api_view()
 def listClients(request):
     clients = Client.nodes.all()
     serializer = ClientSerializer(clients, many=True)
     return JsonResponse(serializer.data, safe=False)
 
+@api_view()
 def listTransporters(request):
     transporters = Transporter.nodes.all()
     serializer = TransporterSerializer(transporters, many=True)
     return JsonResponse(serializer.data, safe=False)
 
+@api_view()
 def listOrders(request):
     orders = Order.nodes.all()
     serializer = OrderSerializer(orders, many=True)
     return JsonResponse(serializer.data, safe=False)
 
+@api_view()
 def getOrderById(request,oId):
      order = Order.nodes.get(orderId=oId)
      serializer = OrderSerializer(order)

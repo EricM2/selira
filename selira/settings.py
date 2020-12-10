@@ -75,6 +75,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_swagger',
     'django_neomodel',
     'seliraApi.apps.SeliraapiConfig',
 
