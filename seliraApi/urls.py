@@ -12,8 +12,8 @@ from rest_framework.schemas import get_schema_view
 urlpatterns = [
     #path('', include(router.urls)),
     path('openapi/', get_schema_view(
-        title="School Service",
-        description="API developers hpoing to use our service"
+        title="selira API",
+        description="selira developer API"
     ), name='openapi-schema'),
     path('docs/', TemplateView.as_view(
         template_name='documentation.html',
